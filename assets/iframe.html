@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- This is for demo purposes only. This is not production code. Please do not code this way. -->
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script>
+    const client = ZAFClient.init();
+    client.invoke('resize', {
+      width: '100%',
+      height: '520px'
+    });
+  </script>
+  <script src="/main.js"></script>
+
+  <h3>Calling Zendesk API:</h3>
+  <p>Using client.request to Zendesk API (Show All Owned Apps):
+    <button onClick="requestToZendeskApi()">Go</button></p>
+
+  <h3>Request to remote API:</h3>
+  <strong>Note:</strong>
+  <p> Wikipedia's API does not accept CORS, so using either of the CORS options to this API will fail. You can use
+    another endpoint of your choosing or https://api.github.com to see successful requests with CORS enabled.</p>
+  <label for="remoteUrl">Enter the remote URL to call:</label>
+  <input style="width:250px" name="remoteUrl" id="remoteUrl" value="https://wikipedia.com">
+
+  <p>Using client.request with CORS:
+    <button onClick="requestToRemoteAPICors()">Go</button></p>
+  <p>Using client.request without CORS:
+    <button onClick="requestToRemoteAPINoCors()">Go</button></p>
+
+  <p>Using fetch() with CORS:
+    <button onClick="fetchRequestWithCors()">Go</button></p>
+  <p>Using fetch() without CORS:
+    <button onClick="fetchRequestWithoutCors()">Go</button></p>
+
+</body>
+
+</html>
